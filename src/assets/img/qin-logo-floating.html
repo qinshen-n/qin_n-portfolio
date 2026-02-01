@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qin Logo - Floating Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 500px;
+            height: 400px;
+        }
+
+        /* Base logo image with the dot hidden */
+        .logo-base {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Mask to hide the original dot */
+        .dot-mask {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #2d3250;
+            border-radius: 50%;
+            top: 88px;
+            left: 260px;
+            z-index: 2;
+        }
+
+        /* The animated floating dot */
+        .animated-dot {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+            border-radius: 50%;
+            top: 88px;
+            left: 260px;
+            z-index: 3;
+            animation: float 2.5s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Alternative animation styles */
+        .float-slow {
+            animation: float-slow 3.5s ease-in-out infinite;
+        }
+
+        @keyframes float-slow {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .float-gentle {
+            animation: float-gentle 3s ease-in-out infinite;
+        }
+
+        @keyframes float-gentle {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .float-bounce {
+            animation: float-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes float-bounce {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            25% {
+                transform: translateY(-18px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+            75% {
+                transform: translateY(-14px);
+            }
+        }
+
+        /* Controls */
+        .controls {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 165, 0, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .style-selector {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .style-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .style-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .style-btn.active {
+            background: #FFA500;
+            border-color: #FFA500;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Background options */
+        .bg-dark { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+        .bg-light { background: #f5f5f5; }
+        .bg-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .bg-white { background: #ffffff; }
+
+        .bg-selector {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .bg-btn {
+            padding: 8px 16px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .bg-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .bg-btn.active {
+            background: #FFA500;
+            border-color: #FFA500;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 16px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="container">
+        <h1>Qin Logo Animation</h1>
+        <p>Gentle floating effect - professional and subtle</p>
+        
+        <div class="logo-wrapper">
+            <!-- Base logo -->
+            <img src="Logo.png" alt="Qin Logo" class="logo-base" id="logoImg">
+            
+            <!-- Mask to hide the original dot -->
+            <div class="dot-mask"></div>
+            
+            <!-- Floating dot -->
+            <div class="animated-dot" id="animatedDot"></div>
+        </div>
+
+        <div class="controls">
+            <button onclick="toggleAnimation()">Pause/Play</button>
+        </div>
+
+        <div class="section-title">Animation Style:</div>
+        <div class="style-selector">
+            <button class="style-btn" onclick="changeStyle('normal')">Normal Float</button>
+            <button class="style-btn active" onclick="changeStyle('gentle')">Gentle Float</button>
+            <button class="style-btn" onclick="changeStyle('slow')">Slow Float</button>
+            <button class="style-btn" onclick="changeStyle('bounce')">Bounce Float</button>
+        </div>
+
+        <div class="section-title">Background:</div>
+        <div class="bg-selector">
+            <button class="bg-btn active" onclick="changeBackground('dark')">Dark</button>
+            <button class="bg-btn" onclick="changeBackground('light')">Light</button>
+            <button class="bg-btn" onclick="changeBackground('white')">White</button>
+            <button class="bg-btn" onclick="changeBackground('gradient')">Gradient</button>
+        </div>
+    </div>
+
+    <script>
+        let isPaused = false;
+        const animatedDot = document.getElementById('animatedDot');
+
+        function toggleAnimation() {
+            isPaused = !isPaused;
+            if (isPaused) {
+                animatedDot.style.animationPlayState = 'paused';
+            } else {
+                animatedDot.style.animationPlayState = 'running';
+            }
+        }
+
+        function changeStyle(style) {
+            const buttons = document.querySelectorAll('.style-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Remove all animation classes
+            animatedDot.className = 'animated-dot';
+            
+            // Add new animation class
+            if (style === 'normal') {
+                // Default animation, no extra class needed
+                buttons[0].classList.add('active');
+            } else if (style === 'gentle') {
+                animatedDot.classList.add('float-gentle');
+                buttons[1].classList.add('active');
+            } else if (style === 'slow') {
+                animatedDot.classList.add('float-slow');
+                buttons[2].classList.add('active');
+            } else if (style === 'bounce') {
+                animatedDot.classList.add('float-bounce');
+                buttons[3].classList.add('active');
+            }
+        }
+
+        function changeBackground(type) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.bg-btn');
+            
+            // Remove all bg classes
+            body.className = '';
+            
+            // Remove active from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add new class and active state
+            if (type === 'dark') {
+                body.classList.add('bg-dark');
+                buttons[0].classList.add('active');
+                document.querySelector('.dot-mask').style.background = '#2d3250';
+            } else if (type === 'light') {
+                body.classList.add('bg-light');
+                buttons[1].classList.add('active');
+                document.querySelector('.dot-mask').style.background = '#f5f5f5';
+            } else if (type === 'white') {
+                body.classList.add('bg-white');
+                buttons[2].classList.add('active');
+                document.querySelector('.dot-mask').style.background = '#ffffff';
+            } else if (type === 'gradient') {
+                body.classList.add('bg-gradient');
+                buttons[3].classList.add('active');
+                document.querySelector('.dot-mask').style.background = '#6b7bb3';
+            }
+        }
+
+        // Set default gentle animation on load
+        window.addEventListener('load', function() {
+            changeStyle('gentle');
+        });
+    </script>
+</body>
+</html>

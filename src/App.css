@@ -1,0 +1,871 @@
+/*  Custom Fonts */
+@font-face {
+font-family: Centra;
+src: url('./assets/font/CentraNo2-Bold.ttf') format('truetype');
+font-weight: 700;
+}
+@font-face {
+font-family: Centra;
+src: url('./assets/font/CentraNo2-Medium.ttf') format('truetype');
+font-weight: 500;
+}
+@font-face {
+font-family: Centra;
+src: url('./assets/font/CentraNo2-Book.ttf') format('truetype');
+font-weight: 400;
+}
+
+/* Default CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 75px;
+}
+
+body {
+    font-weight: 400;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #121212 !important;
+    color: #fff !important;
+    font-family: 'Centra', sans-serif !important; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+p, a, li, button, ul {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    }
+
+    img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+}
+
+p.success {
+	color: green;
+}
+
+p.danger {
+	color: red;
+}
+/* NavBar */
+nav.navbar {
+    padding: 18px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    transition:  0.32s ease-in-out;
+}
+nav.navbar nav.container {
+    position: relative;
+}
+nav.navbar.scrolled {
+    padding: 0px 0;
+    background-color: #121212;
+}
+nav.navbar a.navbar-brand {
+    width: 180px;
+    display: inline-block;
+    margin: 0;
+    
+}
+.navbar-brand img:hover {
+    transform: scale(1.1); /* Grows 10% larger */
+    transition: 0.3s ease-in-out;
+    filter: drop-shadow(0 0 10px rgba(170, 54, 124, 0.6)); /* Adds a purple glow */
+}
+nav.navbar .navbar-nav .nav-link.navbar-link {
+    font-weight: 400;
+    color: #fff !important;
+    letter-spacing: 0.8px;
+    padding: 0 25px;
+    font-size: 18px;
+    opacity: 0.75;
+}
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+    opacity: 1;
+}
+span.navbar-text {
+    display: flex;
+    align-items: center;
+}
+/* FORCE LOGO TO CENTER ON DESKTOP */
+@media (min-width: 992px) {
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+}
+.social-icon {
+    display: inline-block;
+    margin-left: 14px;
+}
+.social-icon a {
+    width: 46px;
+    height: 46px;
+    background: rgba(217, 217, 217, 0.1);
+    display: inline-flex;
+    border-radius: 50%;
+    margin-right: 6px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.social-icon a::before {
+    content: "";
+    width: 46px;
+    height: 46px;
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transform: scale(0);
+	transition: 0.3s ease-in-out;
+}
+.social-icon a:hover::before {
+    transform: scale(1);
+}
+.social-icon a img {
+	width: 45%;
+	z-index: 1;
+	transition: 0.3s ease-in-out;
+    filter: brightness(0) invert(1);
+}
+.social-icon a:hover img {
+	filter: brightness(0) invert(0);
+}
+.navbar-text button {
+    font-weight: 700;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 18px 34px;
+    font-size: 18px;
+    margin-left: 18px;
+	position: relative;
+	background-color: transparent;
+	transition: 0.3s ease-in-out;
+}
+.navbar-text button span {
+    z-index: 1;
+}
+.navbar-text button::before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+}
+.navbar-text button:hover {
+    color: #121212;
+}
+.navbar-text button:hover::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+nav.navbar .navbar-toggler:active,
+nav.navbar .navbar-toggler:focus {
+	outline: none;
+    box-shadow: none;
+}
+nav.navbar .navbar-toggler-icon {
+    width: 24px;
+    height: 17px;
+    background-image: none;
+    position: relative;
+    border-bottom: 2px solid #fff;
+    transition: all 300ms linear;
+    top: -2px;
+}
+nav.navbar .navbar-toggler-icon:focus {
+	border-bottom: 2px solid #fff;
+}
+nav.navbar .navbar-toggler-icon:after,
+nav.navbar .navbar-toggler-icon:before {
+	width: 24px;
+	position: absolute;
+	height: 2px;
+	background-color: #fff;
+	top: 0;
+	left: 0;
+	content: '';
+	z-index: 2;
+	transition: all 300ms linear;
+}
+nav.navbar .navbar-toggler-icon:after {
+	top: 8px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+	transform: rotate(45deg);
+	background-color: #fff;
+	height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+	transform: translateY(8px) rotate(-45deg);
+	background-color: #fff;
+	height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+	border-color: transparent;
+}
+
+/* Banner CSS */
+.banner {
+    margin-top: 0;
+    padding: 260px 0 100px 0;
+    background-image: url('./assets/img/banner-bg.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.banner .tagline {
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 8px 10px;
+    background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+.banner h1.static-text {
+    font-size: 75px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 1;
+    margin-bottom: 0px;
+    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+}
+
+.banner h1.rotate-txt {
+    font-size: 65px;
+    font-weight: 700; 
+    color: #fff;
+    display: block;
+    margin-top: 10px;
+}
+.banner p {
+    color: #B8B8B8;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 1.5em;
+    width: 96%;
+}
+.resume-btn {
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 40px;
+    letter-spacing: 0.8px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* White/Grey Border */
+    padding: 12px 34px;
+    border-radius: 10px; /* Rounded corners */
+    transition: 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparent background */
+    text-decoration: none;
+}
+.resume-btn svg {
+    margin-left: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.resume-btn:hover {
+    background: #fff; /* Turns white on hover */
+    color: #121212;   /* Text turns black */
+    transform: translateY(-5px); /* Moves up slightly */
+}
+.img-container {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%; 
+    margin: 0 auto;
+    overflow: hidden; 
+    border: 5px solid rgba(255, 255, 255, 0.1); 
+    position: relative;
+    animation: updown 3s linear infinite;
+} 
+.banner img {
+    width: 100%; 
+    height: 100%; 
+    border-radius: 50%; 
+    object-fit: cover;
+}
+
+@keyframes updown {
+    0% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+.txt-rotate > .wrap {
+    border-right: 0.08em solid #666;
+}
+
+/* Skills CSS */
+.skill {
+    padding: 0 0 0 0;
+    position: relative;
+    background-color: transparent;
+    margin-top: -60px;
+    z-index: 10;
+    overflow: hidden;
+}
+.skill-bx {
+    background: transparent;
+    border-radius: 0;
+    padding: 10px 0px;
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: none;
+}
+.skill h2 {
+	font-size: 45px;
+	font-weight: 700;
+}
+.skill p {
+    color: #B8B8B8;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 1.5em;
+    margin: 14px 0 75px 0;
+}
+.background-image-left {
+    top: 15%; 
+    left: 0;
+    position: absolute;
+    width: 45%; 
+    z-index: 1; 
+    opacity: 0.6; 
+    mix-blend-mode: screen; 
+    opacity: 0.4;
+}
+/* --- ORBIT SKILLS LAYOUT --- */
+.orbit-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 50px auto;
+}
+
+/* The concentric circles */
+.orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 1; 
+}
+
+.orbit-ring.inner { width: 230px; height: 230px; z-index: 3; }
+.orbit-ring.middle { width: 400px; height: 400px; z-index: 2; }
+.orbit-ring.outer { width: 580px; height: 580px; z-index: 1; }
+
+/* The Center Hub */
+.orbit-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Dead center */
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(170, 54, 124, 0.5);
+}
+.orbit-center h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+    text-align: center;
+}
+
+/* The Icons (Items) */
+.orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-left: -30px; 
+    margin-top: -30px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* THE ORBIT MATH: Rotate -> Push Out (Radius) -> Counter-Rotate (keep icon upright) */
+    transform: rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
+    z-index: 5;
+}
+
+/* Move items to ring edge - CSS Math magic */
+.inner .orbit-item { --radius: 115px; }  /* 230px / 2 */
+.middle .orbit-item { --radius: 200px; } /* 400px / 2 */
+.outer .orbit-item { --radius: 290px; }  /* 580px / 2 */
+
+/* Icon Styling */
+.orbit-item svg {
+    font-size: 30px;
+    margin-bottom: 5px;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+    transition: 0.3s;
+}
+.orbit-item span {
+    font-size: 12px;
+    color: #B8B8B8;
+    background: rgba(0,0,0,0.8);
+    padding: 2px 6px;
+    border-radius: 4px;
+    opacity: 0; 
+    transition: 0.3s;
+    white-space: nowrap; 
+}
+
+/* Hover Effect */
+.orbit-item:hover { z-index: 20; } /* Bring to front on hover */
+.orbit-item:hover svg { transform: scale(1.2); }
+.orbit-item:hover span { opacity: 1; }
+
+
+
+/* Background Grid Lines (Radar look) */
+.grid-lines {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    top: 50%;
+    left: 0;
+}
+.grid-lines::after {
+    content: "";
+    position: absolute;
+    height: 600px;
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+    left: 50%;
+    top: -300px;
+}
+
+/* Animation for Orbit */
+
+/* 1. Define the Spinning Animations */
+
+/* Clockwise Spin (For the Rings) */
+@keyframes spin-right {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Counter-Clockwise Spin (For the Icons, to keep them upright!) */
+@keyframes spin-left {
+    100% {
+        /* We must keep the placement logic, but subtract 360deg from the rotation */
+        transform: rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle) - 360deg));
+    }
+}
+
+/* 2. Apply Animations to the Rings */
+/* Inner Ring: Fast (20s) */
+.orbit-ring.inner {
+    animation: spin-right 20s linear infinite;
+}
+.orbit-ring.inner .orbit-item {
+    animation: spin-left 20s linear infinite;
+}
+
+/* Middle Ring: Medium (30s) */
+.orbit-ring.middle {
+    animation: spin-right 30s linear infinite;
+}
+.orbit-ring.middle .orbit-item {
+    animation: spin-left 30s linear infinite;
+}
+
+/* Outer Ring: Slow (40s) */
+.orbit-ring.outer {
+    animation: spin-right 40s linear infinite;
+}
+.orbit-ring.outer .orbit-item {
+    animation: spin-left 40s linear infinite;
+}
+
+/* Optional: Pause animation when you hover over the skills so you can click them */
+.orbit-container:hover .orbit-ring,
+.orbit-container:hover .orbit-item {
+    animation-play-state: paused;
+}
+
+/* Projects CSS */
+.project {
+    padding: 10px 0 80px 0;
+    position: relative;
+    background-color: #121212;
+    color: #fff;
+}
+.project h2 {
+	font-size: 45px;
+	font-weight: 700;
+    text-align: center;
+}
+.project p {
+    color: #B8B8B8;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 1.5em;
+    margin: 14px auto 70px auto;
+    text-align: center;
+    width: 85%;
+    max-width: 900px;
+}
+
+/* Projects CSS --- */
+.project-card-row {
+    margin-bottom: 40px;
+    width: 100%;
+}
+/* Removes the line and margin from the very last project card */
+.project-card-row:last-child hr {
+    display: none;
+}
+.project-card-row:last-child {
+    margin-bottom: 0;
+}
+.project-content {
+    padding-left: 60px;
+    text-align: left; 
+}
+.project-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.role-subtitle {
+    font-size: 18px;
+    color: #AA367C;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+.project-bullets {
+    list-style-type: none; 
+    padding: 0;
+    margin-bottom: 20px;
+}
+.project-bullets li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 14px;
+    color: #B8B8B8;
+    line-height: 1.6;
+}
+.project-bullets li::before {
+    content: "▹"; 
+    position: absolute;
+    left: 0;
+    color: #AA367C;
+}
+
+/* Tech Stack Tags */
+.tech-stack {
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+.tech-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 12px;
+    border-radius: 15px;
+    margin-left: 8px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Project Buttons */
+.project-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Ensures buttons don't break layout on small screens */
+}
+.btn-action {
+    padding: 10px 24px;
+    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    color: white;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+.btn-action.hollow {
+    background: transparent;
+    border: 1px solid #fff;
+}
+.btn-action:hover {
+    transform: translateY(-3px);
+    color: white;
+}
+
+.project-divider {
+    border-color: rgba(255,255,255,0.1);
+    margin-top: 50px;
+}
+
+/* Overlay Button Fix */
+.btn-overlay {
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-overlay:hover {
+    background: white;
+    color: black;
+}
+
+.background-image-right {
+    top: 20%;
+    position: absolute;
+    bottom: 0;
+    width: 35%;
+    right: 0;
+    z-index: -4;
+}
+
+/* Contact Form Section */
+.contact {
+    background-color: #121212; 
+    padding: 100px 0 100px 0;
+    margin-top: -50px; 
+}
+.contact h2 {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.contact-desc {
+    color: #B8B8B8;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 1.6em;
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+/* Social Icons CSS */
+.social-icon-contact {
+    margin-top: 20px;
+}
+.social-icon-contact a {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    border-radius: 50%;
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+}
+.social-icon-contact a:hover {
+    background: #AA367C;
+    border-color: #AA367C;
+}
+.social-icon-contact a img {
+    width: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/* Form Input CSS */
+.contact form input, 
+.contact form textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05); /* Darker input background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    margin: 0 0 15px 0;
+    padding: 15px 20px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+.contact form input:focus, 
+.contact form textarea:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #AA367C;
+    outline: none;
+}
+.contact form input::placeholder, 
+.contact form textarea::placeholder {
+    color: #B8B8B8;
+    opacity: 0.7;
+}
+/* Send Button CSS */
+.contact form button {
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    padding: 14px 48px;
+    font-size: 18px;
+    margin-top: 15px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+.contact form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(170, 54, 124, 0.4);
+}
+
+/* Footer CSS */
+.footer {
+    padding: 50px 0 50px 0;
+    background-image: url('./assets/img/footer-bg.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center !important;
+}
+
+.footer p {
+    font-weight: 400;
+    font-size: 14px;
+    color: #B8B8B8;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Mobile Responsiveness (Max-width 768px) */
+@media (max-width: 768px) {
+    
+    /*  1. Banner & Image Fixes */
+    .img-container {
+        width: 300px;
+        height: 300px;
+        margin-top: 50px;
+    }
+
+    /* 2. Orbit & Skills Fixes  */
+    .orbit-container { 
+        transform: scale(0.55); 
+        /* UPDATED: Increased negative margin to -120px to remove the "Ghost Space" */
+        margin: -120px auto -120px auto; 
+        transform-origin: center center;
+    }
+
+    /* 3. Project Section Fixes */
+    .project-content {
+        padding-left: 0;
+        margin-top: 30px;
+        text-align: center; /* Optional: centers project text on mobile */
+    }
+    .project-card-row {
+        margin-bottom: 50px;
+    }
+    /* Stack the buttons nicely on mobile */
+    .project-buttons {
+        justify-content: center;
+    }
+
+    /* 4. Contact Section Fixes */
+    /* Center the text and icons */
+    .contact h2, 
+    .contact .contact-desc, 
+    .social-icon-contact {
+        text-align: center;
+    }
+    .contact h2 {
+        display: block;
+    }
+    .contact-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .social-icon-contact {
+        justify-content: center;
+        display: flex;
+        margin-bottom: 40px;
+    }
+    .social-icon-contact a {
+        width: 38px;
+        height: 38px;
+        margin-right: 10px;
+        line-height: 38px;
+    }
+    .social-icon-contact a img {
+        width: 16px;
+    }
+
+    .contact form button {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

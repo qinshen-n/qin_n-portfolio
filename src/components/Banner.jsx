@@ -68,7 +68,7 @@ function Banner() {
                             <h1 className="rotate-txt">
                                 <span className="wrap">{text}</span>
                             </h1>
-                            <p>As a full-stack developer, I am dedicated to turning ideas into innovative and intuitive products. Explore my latest projects, showcasing my expertise in software development.</p>
+                            <p>I build digital products the way I'd build with Lego 🧩—snapping pieces of logic together until something great emerges. As a full-stack developer, I turn ideas into intuitive, innovative solutions. Take a look at what I've been creating.</p>
                             <a href="/Resume.pdf" target="_blank" className="resume-btn">
                                 Resume <BoxArrowUpRight size={20} />
                             </a>

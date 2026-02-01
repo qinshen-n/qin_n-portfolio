@@ -1,8 +1,9 @@
 import { Container, Row, Col } from "react-bootstrap";
+import footerImg from "../assets/img/foot-bg.png"
 
 function Footer() {
     return (
-        <footer className="footer">
+        <footer className="footer" style={{ backgroundImage: `url(${footerImg})` }}>
             <Container>
                 <Row className="align-items-center">
                     <Col size={12}>

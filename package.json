@@ -1,14 +1,17 @@
 {
+  "homepage": "https://qinshen-n.github.io/qin_n-portfolio",
   "name": "qin_n-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "animate.css": "^4.1.1",

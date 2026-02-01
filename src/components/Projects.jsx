@@ -48,8 +48,8 @@ function Projects() {
             "Optimized for performance and mobile responsiveness."
             ],
             techStack: ["React", "Bootstrap", "CSS3", "Animate.css"],
-            demoLink: "https://your-portfolio-link.com",
-            repoLink: "https://github.com/yourusername/portfolio",
+            demoLink: "https://qinshen-n.github.io/qin_n-portfolio/",
+            repoLink: "https://github.com/qinshen-n/qin_n-portfolio",
         }
     ];
 

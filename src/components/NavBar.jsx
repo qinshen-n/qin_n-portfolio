@@ -32,15 +32,19 @@ function NavBar() {
     }
 
     return (
-        <Router>
+        <Router basename="/qin_n-portfolio">
             <Navbar expand="md" className={scrolled ? "scrolled": ""}>
                 <Container>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" >
                         <span className="navbar-toggler-icon"></span>
                     </Navbar.Toggle>
-                    <Navbar.Brand href="/qin_n-portfolio/" className="logo-center">
-                        <img src={logo} alt="Logo" />
-                    </Navbar.Brand>
+
+                    <HashLink to="#home" className="logo-center">
+                        <Navbar.Brand>
+                            <img src={logo} alt="Logo" />
+                        </Navbar.Brand>
+                    </HashLink>
+
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
@@ -49,8 +53,12 @@ function NavBar() {
                     </Nav>
                     <span className="navbar-text">
                         <div className="social-icon">
-                            <a href="https://github.com/qinshen-n"><img src={navIcon1} alt="" /></a>
-                            <a href="https://www.linkedin.com/in/qin-sharon-shen"><img src={navIcon2} alt="" /></a>
+                            <a href="https://github.com/qinshen-n" target="_blank" rel="noopener noreferrer">
+                                <img src={navIcon1} alt="Github" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/qin-sharon-shen" target="_blank" rel="noopener noreferrer">
+                                <img src={navIcon2} alt="LinkedIn" />
+                            </a>
                             <a href="mailto:qshen.sharon@outlook.com"><img src={navIcon3} alt="" /></a>
                         </div>
                         <HashLink to='#connect'>

@@ -39,11 +39,16 @@ function NavBar() {
                         <span className="navbar-toggler-icon"></span>
                     </Navbar.Toggle>
 
-                    <HashLink to="#home" className="logo-center">
-                        <Navbar.Brand>
-                            <img src={logo} alt="Logo" />
-                        </Navbar.Brand>
-                    </HashLink>
+                    <Navbar.Brand
+                        onClick={() => {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            setActiveLink('home');
+                        }}
+                        className="logo-center"
+                        style={{ cursor: 'pointer' }}
+                    >
+                        <img src={logo} alt="Logo" />
+                    </Navbar.Brand>
 
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -59,7 +64,7 @@ function NavBar() {
                             <a href="https://www.linkedin.com/in/qin-sharon-shen" target="_blank" rel="noopener noreferrer">
                                 <img src={navIcon2} alt="LinkedIn" />
                             </a>
-                            <a href="mailto:qshen.sharon@outlook.com"><img src={navIcon3} alt="" /></a>
+                            <a href="mailto:qshen.sharon@outlook.com"><img src={navIcon3} alt="Email" /></a>
                         </div>
                         <HashLink to='#connect'>
                             <button className="vvd" onClick={() => console.log('connect')}>

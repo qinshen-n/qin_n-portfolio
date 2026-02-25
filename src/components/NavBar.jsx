@@ -38,7 +38,7 @@ function NavBar() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" >
                         <span className="navbar-toggler-icon"></span>
                     </Navbar.Toggle>
-                    <Navbar.Brand href="/" className="logo-center">
+                    <Navbar.Brand href="/qin_n-portfolio/" className="logo-center">
                         <img src={logo} alt="Logo" />
                     </Navbar.Brand>
                     <Navbar.Collapse id="basic-navbar-nav">

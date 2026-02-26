@@ -91,11 +91,15 @@ nav.navbar.scrolled {
     padding: 0px 0;
     background-color: #121212;
 }
-nav.navbar a.navbar-brand {
+nav.navbar .navbar-brand {
     width: 180px;
     display: inline-block;
     margin: 0;
+    cursor: pointer;
     
+}
+.navbar-brand img {
+    transition: 0.3s ease-in-out;
 }
 .navbar-brand img:hover {
     transform: scale(1.1); /* Grows 10% larger */
